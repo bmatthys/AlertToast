@@ -319,7 +319,7 @@ public struct AlertToast: View{
             }
             .padding(.horizontal, 24)
             .padding(.vertical, 8)
-            .frame(minHeight: 50, maxWidth: 400)
+            .frame(maxWidth: 400, minHeight: 50)
             .alertBackground(custom?.backgroundColor ?? nil)
             .clipShape(Capsule())
             .overlay(Capsule().stroke(Color.gray.opacity(0.2), lineWidth: 1))
@@ -690,6 +690,6 @@ public extension View{
 
 struct AlertToast_Preview: PreviewProvider {
     static var previews: some View {
-        AlertToast(displayMode: .hud, type: .error(Color.red), title: "Error", subTitle: "Something went wrong while unlocking your connector.", custom: nil)
+        AlertToast(displayMode: .hud, type: .error(Color.red), title: "Error", subTitle: "Something went wrong while unlocking the chargingcable. Please try again later.", custom: nil)
     }
 }
