@@ -299,18 +299,20 @@ public struct AlertToast: View{
                     VStack(alignment: type == .regular ? .center : .leading, spacing: 2){
                         if title != nil{
                             Text(LocalizedStringKey(title ?? ""))
-                                .lineLimit(nil)
                                 .font(custom?.titleFont ?? Font.body.bold())
                                 .multilineTextAlignment(.center)
                                 .textColor(custom?.titleColor ?? nil)
+                                .lineLimit(nil)
+                                .fixedSize(horizontal: false, vertical: true)
                         }
                         if subTitle != nil{
                             Text(LocalizedStringKey(subTitle ?? ""))
                                 .font(custom?.subTitleFont ?? Font.footnote)
                                 .opacity(0.7)
-                                .lineLimit(nil)
                                 .multilineTextAlignment(.center)
                                 .textColor(custom?.subtitleColor ?? nil)
+                                .lineLimit(nil)
+                                .fixedSize(horizontal: false, vertical: true)
                         }
                     }
                 }
@@ -683,5 +685,11 @@ public extension View{
                 onChange(value)
             }
         }
+    }
+}
+
+struct AlertToast_Preview: PreviewProvider {
+    static var previews: some View {
+        AlertToast(displayMode: .hud, type: .error(Color.red), title: "Error", subTitle: "Something went wrong while unlocking your connector.", custom: nil)
     }
 }
