@@ -300,7 +300,7 @@ public struct AlertToast: View{
                         if title != nil{
                             Text(LocalizedStringKey(title ?? ""))
                                 .font(custom?.titleFont ?? Font.body.bold())
-                                .multilineTextAlignment(.center)
+                                .multilineTextAlignment(.leading)
                                 .textColor(custom?.titleColor ?? nil)
                                 .lineLimit(nil)
                                 .fixedSize(horizontal: false, vertical: true)
@@ -309,7 +309,7 @@ public struct AlertToast: View{
                             Text(LocalizedStringKey(subTitle ?? ""))
                                 .font(custom?.subTitleFont ?? Font.footnote)
                                 .opacity(0.7)
-                                .multilineTextAlignment(.center)
+                                .multilineTextAlignment(.leading)
                                 .textColor(custom?.subtitleColor ?? nil)
                                 .lineLimit(nil)
                                 .fixedSize(horizontal: false, vertical: true)
@@ -685,11 +685,5 @@ public extension View{
                 onChange(value)
             }
         }
-    }
-}
-
-struct AlertToast_Preview: PreviewProvider {
-    static var previews: some View {
-        AlertToast(displayMode: .hud, type: .error(Color.red), title: "Error", subTitle: "Something went wrong while unlocking the chargingcable. Please try again later.", custom: nil)
     }
 }
