@@ -301,9 +301,9 @@ public struct AlertToast: View{
                     VStack(alignment: type == .regular ? .center : .leading, spacing: 2){
                         if title != nil{
                             Text(LocalizedStringKey(title ?? ""))
-                                .font(custom?.titleFont ?? Font.body.bold())
+                                .font(style?.titleFont ?? Font.body.bold())
                                 .multilineTextAlignment(.leading)
-                                .textColor(custom?.titleColor ?? nil)
+                                .textColor(style?.titleColor ?? nil)
                                 .lineLimit(nil)
                                 .fixedSize(horizontal: false, vertical: true)
                         }
@@ -312,7 +312,7 @@ public struct AlertToast: View{
                                 .font(style?.subTitleFont ?? Font.footnote)
                                 .opacity(0.7)
                                 .multilineTextAlignment(.leading)
-                                .textColor(custom?.subtitleColor ?? nil)
+                                .textColor(style?.subtitleColor ?? nil)
                                 .lineLimit(nil)
                                 .fixedSize(horizontal: false, vertical: true)
                         }
