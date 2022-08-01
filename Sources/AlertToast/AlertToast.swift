@@ -315,6 +315,7 @@ public struct AlertToast: View{
                                 .textColor(style?.subtitleColor ?? nil)
                                 .lineLimit(nil)
                                 .fixedSize(horizontal: false, vertical: true)
+                                .frame(maxWidth: UIScreen.main.bounds.width, minHeight: 80)
                         }
                     }
                 }
