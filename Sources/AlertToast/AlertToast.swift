@@ -306,6 +306,7 @@ public struct AlertToast: View{
                                 .textColor(style?.titleColor ?? nil)
                                 .lineLimit(nil)
                                 .fixedSize(horizontal: false, vertical: true)
+                                .frame(maxWidth: UIScreen.main.bounds.width - 48)
                         }
                         if subTitle != nil{
                             Text(LocalizedStringKey(subTitle ?? ""))
@@ -315,7 +316,7 @@ public struct AlertToast: View{
                                 .textColor(style?.subtitleColor ?? nil)
                                 .lineLimit(nil)
                                 .fixedSize(horizontal: false, vertical: true)
-                                .frame(maxWidth: UIScreen.main.bounds.width, minHeight: 80)
+                                .frame(maxWidth: UIScreen.main.bounds.width - 48)
                         }
                     }
                 }
@@ -323,7 +324,7 @@ public struct AlertToast: View{
             .fixedSize(horizontal: true, vertical: false)
             .padding(.horizontal, 24)
             .padding(.vertical, 8)
-            .frame(maxWidth: UIScreen.main.bounds.width, minHeight: 80)
+            .frame(maxWidth: UIScreen.main.bounds.width - 48, minHeight: 80)
             .alertBackground(style?.backgroundColor ?? nil)
             .clipShape(Capsule())
             .overlay(Capsule().stroke(Color.gray.opacity(0.2), lineWidth: 1))
