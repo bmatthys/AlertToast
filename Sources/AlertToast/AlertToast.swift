@@ -301,16 +301,20 @@ public struct AlertToast: View{
                     VStack(alignment: type == .regular ? .center : .leading, spacing: 2){
                         if title != nil{
                             Text(LocalizedStringKey(title ?? ""))
-                                .font(style?.titleFont ?? Font.body.bold())
-                                .multilineTextAlignment(.center)
-                                .textColor(style?.titleColor ?? nil)
+                                .font(custom?.titleFont ?? Font.body.bold())
+                                .multilineTextAlignment(.leading)
+                                .textColor(custom?.titleColor ?? nil)
+                                .lineLimit(nil)
+                                .fixedSize(horizontal: false, vertical: true)
                         }
                         if subTitle != nil{
                             Text(LocalizedStringKey(subTitle ?? ""))
                                 .font(style?.subTitleFont ?? Font.footnote)
                                 .opacity(0.7)
-                                .multilineTextAlignment(.center)
-                                .textColor(style?.subtitleColor ?? nil)
+                                .multilineTextAlignment(.leading)
+                                .textColor(custom?.subtitleColor ?? nil)
+                                .lineLimit(nil)
+                                .fixedSize(horizontal: false, vertical: true)
                         }
                     }
                 }
@@ -318,8 +322,8 @@ public struct AlertToast: View{
             .fixedSize(horizontal: true, vertical: false)
             .padding(.horizontal, 24)
             .padding(.vertical, 8)
-            .frame(minHeight: 50)
-            .alertBackground(style?.backgroundColor ?? nil)
+            .frame(minHeight: 80)
+            .alertBackground(custom?.backgroundColor ?? nil)
             .clipShape(Capsule())
             .overlay(Capsule().stroke(Color.gray.opacity(0.2), lineWidth: 1))
             .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 6)
