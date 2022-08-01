@@ -322,7 +322,7 @@ public struct AlertToast: View{
             .fixedSize(horizontal: true, vertical: false)
             .padding(.horizontal, 24)
             .padding(.vertical, 8)
-            .frame(minHeight: 80)
+            .frame(maxWidth: UIScreen.main.bounds.width, minHeight: 80)
             .alertBackground(style?.backgroundColor ?? nil)
             .clipShape(Capsule())
             .overlay(Capsule().stroke(Color.gray.opacity(0.2), lineWidth: 1))
